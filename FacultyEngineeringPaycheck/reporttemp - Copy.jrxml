@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporttemp" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="25feb4ce-75a1-4637-adac-874b2f522b7e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="empname" class="java.lang.String"/>
+	<parameter name="from" class="java.lang.String"/>
+	<parameter name="to" class="java.lang.String"/>
+	<parameter name="dept" class="java.lang.String"/>
+	<parameter name="position" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT EMPNAME, POSITIONS.TITLE, TYPENAME, AMT, DT, DESCRIPTION FROM EMPLOYEE, EMPLOYEE_PAYCHECK, PAYCHECKTYPE, POSITIONS WHERE  TYPEID=PAYTYPE  AND EMPID=EMPNID AND AMT>=1 AND EMPPOSITION= POSID AND EMPNAME LIKE CONCAT("%",$P{empname},"%") AND DT BETWEEN STR_TO_DATE($P{from},'%d-%m-%Y') AND STR_TO_DATE($P{to},'%d-%m-%Y')]]>
+	</queryString>
+	<field name="EMPNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TITLE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TYPENAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="AMT" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DT" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DESCRIPTION" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="194" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="248" y="45" width="177" height="22" uuid="f0522cf1-58d5-4f68-8f15-5926eed79964"/>
+				<textElement>
+					<font fontName="Arial" pdfFontName="arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[نظام تبادل بيانات المرتبات والجور]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="301" height="153" uuid="ae848d6a-8a26-4031-8067-bd018ac66046"/>
+				<imageExpression><![CDATA["C:\\Users\\fr loka gerges\\Java workspace\\FacultyEngineeringPaycheck\\alex.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="147" y="11" width="358" height="33" uuid="2197a9fa-c2de-486a-bca6-1054f03287fb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="24" pdfFontName="arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[خدمة الدفع الاكتروني لمستحقات العاملين بالدولة]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="315" y="123" width="26" height="20" uuid="da90b834-801e-45af-b7a0-2324cccbd7fe"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfFontName="arial.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[القسم:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="1e82c987-0a34-4801-97a9-e1d643e9eb28"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="138" height="15" uuid="fb1c551e-691b-41e3-917f-5376fb86c0b6"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font pdfFontName="arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[تاريخ الصرف]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="138" y="19" width="138" height="15" uuid="771bf2cf-2907-4ea5-887c-c73b4d2944ce"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font pdfFontName="arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[المبلغ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="19" width="138" height="15" uuid="3b863c0e-8a50-4470-b72d-8ea9f825109d"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font pdfFontName="arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[الوصف]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="415" y="19" width="138" height="15" uuid="b080d63a-7c11-4906-b433-f8a8f4197b3c"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font pdfFontName="arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[نوع الصرفية]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="339" y="-109" width="48" height="20" uuid="2d525794-a729-44e5-92b2-2bb85c10d8cf"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfFontName="arial.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[تاريخ الى:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="398" y="-107" width="100" height="20" uuid="3ae2d755-0082-40ea-8e0b-cb24640c1aba"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfFontName="arial.ttf" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{from}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="504" y="-107" width="46" height="20" uuid="f20c4e5e-dd9f-4594-8c9a-9f46e1b42d8b"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfFontName="arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[تاريخ من:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="215" y="-71" width="100" height="20" uuid="989c517a-35d6-4eb7-b251-3e027a2a648c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfFontName="arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dept}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="353" y="-70" width="133" height="20" uuid="b3c3ab17-8ef2-4ff7-a2bb-b01655e0b863"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfFontName="arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{empname}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="518" y="-69" width="29" height="20" uuid="41e9cdda-9969-4730-bbbf-6b13c0a978a3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfFontName="arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[الاسم:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="237" y="-109" width="100" height="20" uuid="acc448b0-7d82-4279-874c-bfd75b1c652d"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfFontName="arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{to}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="428" y="-69" width="85" height="20" uuid="cb3c314b-b9c1-46b6-9729-70fa30b05694"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfFontName="arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TITLE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="9771f9f1-d650-49c2-ab7e-8a717d3d75b7"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="138" height="15" uuid="794f899b-c964-46dc-9dbb-631545330629"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{DT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="138" y="0" width="138" height="15" uuid="1a69cde0-dfc3-4ae0-aa4f-af65d0f74641"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{AMT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="0" width="138" height="15" uuid="5e618d30-392e-4cf8-a7eb-e3abe9118491"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font pdfFontName="arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="414" y="0" width="138" height="15" uuid="4d691690-47ae-4f1f-8cf5-22ac21a85124"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font pdfFontName="arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TYPENAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="222" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="376a5cc7-032a-4fe8-9066-822423544595"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="-1" y="-34" width="555" height="1" uuid="4d24e30d-07cc-444d-a879-abc4aad42091"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="-35" width="555" height="1" uuid="833002ec-3058-4396-9752-29804f371028"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="42ee2bf8-03cf-4a10-8723-baa91728a64d"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="416d850e-06b1-42b1-9c83-64514be03336"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="7d1dbd12-f609-4ec3-84f4-45471926c015"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

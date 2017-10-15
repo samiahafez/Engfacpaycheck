@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PAYCHECK" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="885979b4-39f2-41d8-99b3-402da7fa5734">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="empname" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="from" class="java.lang.String"/>
+	<parameter name="to" class="java.lang.String"/>
+	<parameter name="pos" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT TYPENAME, AMT, FILENAME, DT FROM EMPLOYEE, EMPLOYEE_PAYCHECK, PAYCHECKTYPE WHERE TYPEID=PAYTYPE  AND EMPID=EMPNID AND EMPNAME LIKE "%$P!{empname}%"]]>
+	</queryString>
+	<field name="TYPENAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="AMT" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FILENAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DT" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="173">
+			<staticText>
+				<reportElement style="Title" x="574" y="0" width="133" height="62" uuid="b7d6846c-daf6-4853-aa61-07f724dec5ce"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="24" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[كشف مدفوعات]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="242" y="130" width="21" height="22" uuid="ba984a80-0169-4fdc-ac9f-bfa0f41c701e"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[الى]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="762" y="128" width="34" height="22" uuid="fd0d9a00-731e-4fc9-aeb7-8cc189429331"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[الاسم]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="405" y="130" width="25" height="22" uuid="9ad77fe5-6854-4162-97d9-7bc72fe559f9"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[من]]></text>
+			</staticText>
+			<image>
+				<reportElement x="4" y="2" width="112" height="169" uuid="80cadf53-39a6-4a14-abf2-b6ef600f67a3"/>
+				<imageExpression><![CDATA["C:\\Users\\Samia\\workspace\\alex.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="574" y="130" width="188" height="20" uuid="cfd6f93d-4c3c-4fc8-ae89-dcaf086be6d3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{empname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="132" width="120" height="20" uuid="a9fb01e8-9c84-4fff-985a-b028bdf7dcc7"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{from}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="116" y="130" width="113" height="20" uuid="c6a5e3ed-6f1a-4b73-8fbc-c07ad3ef5605"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{to}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="SubTitle" x="379" y="93" width="51" height="23" uuid="6dbc16fe-7aa1-4e7b-be02-630e42a98bda"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[الوظيفة]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="280" y="96" width="100" height="20" uuid="99dcc4c4-8a05-498a-b387-e945e2f0f143"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="56" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="90" y="15" width="802" height="1" uuid="34decff6-357b-4bd1-9177-f2857d372891"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="4" y="1" width="200" height="15" forecolor="#736343" uuid="5227a677-8de8-4047-92b3-2b4607414c4f"/>
+				<text><![CDATA[نوع المدفوعة]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="205" y="1" width="200" height="15" forecolor="#736343" uuid="b361601f-bc13-4a82-ab03-7751d95e9887"/>
+				<text><![CDATA[AMT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="405" y="1" width="200" height="15" forecolor="#736343" uuid="a892474a-6e16-45a3-b816-d0ab7e4fe8b8"/>
+				<text><![CDATA[عن شهر]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="603" y="0" width="200" height="15" forecolor="#736343" uuid="57d7d34f-9a26-42f5-b678-1ce0a11422a7"/>
+				<text><![CDATA[تارخ الصرف]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="53" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="505b84d3-789b-4762-8aa1-e16be7c402f2"/>
+				<box>
+					<topPen lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="5" y="0" width="200" height="15" uuid="f02e2c8d-b8b6-4a25-9b5e-c17348b2fb28"/>
+					<textFieldExpression><![CDATA[$F{TYPENAME}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="205" y="0" width="200" height="15" uuid="d3be413f-f8d2-43c8-a641-a82bace62513"/>
+					<textFieldExpression><![CDATA[$F{AMT}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="405" y="0" width="200" height="15" uuid="91be13a5-af62-45f7-ab44-1e718a07b10f"/>
+					<textFieldExpression><![CDATA[$F{FILENAME}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="602" y="0" width="200" height="15" uuid="896a862d-177b-4b09-a6c3-68b71c9b6244"/>
+					<textFieldExpression><![CDATA[$F{DT}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="55" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="08f7d900-1d9e-41e6-9fdb-b5841daead50"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="70" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="b05f1067-55f2-426a-afdd-bc8e0e764caa"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="502b4703-d648-4b82-a88a-3800162e3b93"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="4f8bfc96-7a7a-4196-ad22-a9e7f092098d"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="5fa8d899-2933-48ba-8e6d-2e262c6a6d03"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

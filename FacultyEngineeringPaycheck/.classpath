@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre7"/>
+	<classpathentry kind="lib" path="E:/College/College Paycheck/workspace_org/jexcelapi_2_6_12.zip"/>
+	<classpathentry kind="lib" path="E:/College/College Paycheck/jasperreports-6.4.1.jar"/>
+	<classpathentry kind="lib" path="E:/College/College Paycheck/jasperreports-fonts-6.4.1.jar"/>
+	<classpathentry kind="lib" path="E:/College/College Paycheck/jasperreports-functions-6.4.1.jar"/>
+	<classpathentry kind="lib" path="E:/College/College Paycheck/jasperreports-javaflow-6.4.1.jar"/>
+	<classpathentry kind="lib" path="E:/College/College Paycheck/workspace_org/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="E:/College/College Paycheck/workspace_org/swingx-0.9.4.jar"/>
+	<classpathentry kind="lib" path="E:/College/College Paycheck/workspace_org/swingx-0.9.4.jar.zip"/>
+	<classpathentry kind="lib" path="E:/College/College Paycheck/workspace_org/jasperreports-5.6.0-project (3).zip"/>
+	<classpathentry kind="lib" path="E:/College/College Paycheck/jxl.jar.zip"/>
+	<classpathentry kind="lib" path="E:/College/College Paycheck/jxl-2.6.12.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
